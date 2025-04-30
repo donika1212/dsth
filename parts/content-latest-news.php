@@ -4,9 +4,13 @@
 <div class="meta-info">
     <p>
     by <span><?php the_author_posts_link(); ?></span> 
-    Categories: <span><?php the_category( ' ' ); ?></span>
+    <?php if( has_category()): ?>
+        Categories: <span><?php the_category( ' ' ); ?></span>
+    <?php endif; ?>
+    <?php if( has_tag()): ?>
     Tags: <?php the_tags( '', ', ' ); ?>
-</p>
+    <?php endif; ?>
+    </p>
 <p><span><?php echo get_the_date(); ?></p>
 </div>
 <?php the_excerpt(); ?>
